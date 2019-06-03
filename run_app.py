@@ -141,8 +141,8 @@ def Index():
             # Respond with 201 status code (success)
             return Response("{}", status=201,  mimetype='application/json')
         except:
-            # if any attribute is missing (id, first_name, etc..) or not able to add user in database then respond with 404 error code (Failure)
-            return Response("Expected json data for 1 user, got more or less", status = 404)
+            # if any attribute is missing (id, first_name, etc..) or not able to add user in database then respond with 409 error code (Conflict)
+            return Response("Expected json data for 1 user, got more or less OR user with given ID already exists in db", status = 409)
 
 
 @app.route('/api/users/<string:id_data>', methods = ['DELETE', 'PUT', 'GET'])
@@ -194,9 +194,10 @@ def delete(id_data):
             return Response("{}", status = 200)
 
         except:
+            # User not found in db
             return Response("{}", status = 404)
 
-@app.route('/api/test/multipleUsers', methods = ['POST'])
+@app.route('/api/test/multipleUsers', methods = ['POST','DELETE'])
 def add():
     if request.method == 'POST':
         ################
@@ -205,7 +206,12 @@ def add():
         ################
         data = request.get_json()
         for user in data:
-            toadd = User(user['id'],user['first_name'],user['last_name'],user['company_name'],user['city'],user['state'],user['zip'],user['email'],user['web'],user['age'])
+            try:
+                toadd = User(user['id'],user['first_name'],user['last_name'],user['company_name'],user['city'],user['state'],user['zip'],user['email'],user['web'],user['age'])
+            except:
+                print('\n\n\n')
+                print(type(data))
+
             try:
                 db.session.add(toadd)
                 db.session.commit()
@@ -216,6 +222,8 @@ def add():
         return Response("{}", status = 201)
     if request.method == 'DELETE':
         db.drop_all()
+        db.create_all()
+        return Response("{}", status = 200)
 
 
 if __name__ == "__main__":
