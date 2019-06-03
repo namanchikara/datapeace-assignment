@@ -1,3 +1,5 @@
+db_pass = 'ko'
+
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response
 from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
@@ -10,13 +12,13 @@ app.secret_key = 'datapeace assignment SeCReT'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'ko'
+app.config['MYSQL_PASSWORD'] = db_pass
 app.config['MYSQL_DB'] = 'datapeace'
 
 mysql = MySQL(app)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:ko@localhost/datapeace'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:' + db_pass +'@localhost/datapeace'
 db = SQLAlchemy(app)
 
 class User(db.Model):
