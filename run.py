@@ -20,6 +20,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:ko@localhost/datapeace'
 db = SQLAlchemy(app)
 
 class User(db.Model):
+
+    __tablename__ = 'datapace_users'
+
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
