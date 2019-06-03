@@ -29,4 +29,4 @@ Assignment for Backend Dev. position at Data Peace AI Technologies.
 * As this was a backend project, no GUI is present(Sorry), However you can use `postman` https://www.getpostman.com/ to send requests
 * I've most of the endpoints in `test.py` file
 
-Build is currently passing on travis, for futher information regarding build or debugging installation process visit https://travis-ci.com/namanchikara/datapeace-assignment.svg?branch=master
+Build is currently passing on travis, for futher information regarding build or debugging installation process visit https://travis-ci.com/namanchikara/datapeace-assignment
