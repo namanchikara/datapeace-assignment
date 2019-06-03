@@ -38,6 +38,12 @@ Assignment for Backend Dev. position at Data Peace AI Technologies.
 * I've covered most of the endpoints in `test.py` file
 
 # End points
+* `/api/test/multipleUsers` - `POST` - To add multiple users 
+  1. Post request must send data in `json` format to populate db
+  2. Response with HTTP status code `201` on success `{}`
+
+* `/api/test/multipleUsers` - `DELETE` - To delete all users in db
+
 * `/api/users` - `GET` - To list the users. 
   1. Response with HTTP status code `200` on success.
   2. Also, supports some query parameters:-
@@ -64,7 +70,7 @@ Assignment for Backend Dev. position at Data Peace AI Technologies.
 
 * `/api/users/{id}` - `DELETE` - To delete the user
   1. Here {id} will be the id of the user in path parameter 
-  2. Response with HTTP status code 200 on success `{}`
+  2. Response with HTTP status code `200` on success `{}`
 
 
 
