@@ -20,6 +20,7 @@ Assignment for Backend Dev. position at Data Peace AI Technologies.
 * Change directory to folder using `cd datapeace-assignment`
 * In case you want to use virtualenv, then you can do that too, make sure `virtualenv` is installed and then run `virtualenv  venv -p python3` now to activate this virtual environment run `source venv/bin/activate`
 * Run command `pip install -r requirements.txt`
+* Open `run_app.py` and change `password` to your mysql password you set in previous steps
 * Now to run the application run command `python run_app.py`
 * Server would now be running on `localhost` i.e `127.0.0.1`
 * To run tests, run command `python test.py`
